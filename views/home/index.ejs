@@ -8,7 +8,7 @@
   <% for(key in user.toJSON() ) { if (user.hasOwnProperty(key)) { %>
   <tr>
     <td><%= key %>:</td>
-    <td class="boxy"><%= user[key] %></td>
+    <td class="boxy"><%= JSON.stringify(user[key]) %></td>
   </tr>
   <% }} %>
 </table>

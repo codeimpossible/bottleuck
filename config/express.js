@@ -12,7 +12,8 @@ var verifyHandler = function(token, tokenSecret, profile, done) {
         var data = {
           provider: profile.provider,
           uid: profile.id,
-          name: profile.displayName
+          name: profile.displayName,
+          raw: profile._json
         };
 
         if (profile.emails && profile.emails[0] && profile.emails[0].value) {
@@ -39,7 +40,6 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(uid, done) {
   User.findOne({uid: uid}, function(err, user) {
-    console.log('deserializeUser', uid, '::', err, user);
     done(err, user);
   });
 });
