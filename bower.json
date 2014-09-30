@@ -1,0 +1,20 @@
+{
+  "name": "bottleuck",
+  "version": "0.0.0",
+  "authors": [
+    "Jared Barboza <jared.m.barboza@gmail.com>"
+  ],
+  "main": "app.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone.marionette": "~2.2.1"
+  }
+}
