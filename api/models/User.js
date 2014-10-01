@@ -15,6 +15,10 @@ module.exports = {
     name: 'STRING',
     email: 'STRING',
     firstname: 'STRING',
-    lastname: 'STRING'
+    lastname: 'STRING',
+    events: {
+      collection: 'event',
+      via: 'owner'
+    }
   }
 };

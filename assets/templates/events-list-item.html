@@ -1,0 +1,13 @@
+
+<div class="event-item pull-left">
+  <h4><a href="<%= html_url %>"><%- title %></a></h4>
+  <% if(typeof(description) !== 'undefined') { %>
+    <span><%- description %></span>
+  <% } %>
+  <% if(typeof(participants) !== 'undefined') { %>
+    <span><%- participants.length %> participants</span>
+  <% } else  { %>
+    <span>no participants yet</span>
+  <% } %>
+  <button type="button" class="btn btn-link btn-delete-event pull-right"><i class="fa fa-trash fa-2x"></i></button>
+</div>

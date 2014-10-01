@@ -1,0 +1,32 @@
+
+<div class="events-list-header">
+  <h3 class="pull-left">Events
+    <button type="button" class="btn btn-default pull-right btn-toggle-create-event">
+      <i class="fa fa-plus"></i>
+    </button>
+  </h3>
+  <div class="clearfix"></div>
+</div>
+<div class="events-create">
+  <div class="form-create-event hidden">
+    <form class="form" role="form">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" class="col-md-12 form-control" placeholder="Event Title"/>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea name="description" class="col-md-12 form-control" placeholder="Event Description"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary pull-right">
+        <i class="fa fa-floppy-o"></i> Create Event
+      </button>
+
+      <button type="submit" class="btn btn-link btn-toggle-create-event pull-right">
+        Cancel
+      </button>
+    </form>
+  </div>
+</div>
+<div class="events-list"></div>
