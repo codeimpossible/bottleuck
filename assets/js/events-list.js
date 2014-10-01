@@ -1,4 +1,4 @@
-var EventListItem = Marionette.ItemView.extend({
+var BottleuckListItem = Marionette.ItemView.extend({
   template: 'assets/templates/events-list-item.html',
   ui: {
     'delete': '.btn-delete-event'
@@ -15,8 +15,8 @@ var EventListItem = Marionette.ItemView.extend({
   }
 });
 
-var EventsList = Marionette.CompositeView.extend({
-  childView: EventListItem,
+var BottleucksList = Marionette.CompositeView.extend({
+  childView: BottleuckListItem,
   childViewContainer: '.events-list',
   template: 'assets/templates/events-list.html',
 
@@ -33,7 +33,7 @@ var EventsList = Marionette.CompositeView.extend({
   },
 
   initialize: function() {
-    this.model = new Event();
+    this.model = new Bottleuck();
     this.listenTo(this.model, 'invalid', this.showRequired);
     this.listenTo(this.collection, 'add', this.hideForm);
     this.listenTo(this.model, 'sync', this.add);
@@ -66,10 +66,12 @@ var EventsList = Marionette.CompositeView.extend({
     e.stopPropagation();
     this.$('button[type=submit]').removeClass('btn-danger').addClass('btn-primary');
 
+    var currentUser = app.request('user:current');
+
     this.model.set({
       title: this.ui.title.val(),
       description: this.ui.description.val(),
-      owner: this.options.currentUser.id
+      owner: currentUser.id
     });
 
     if(this.model.save()) {
@@ -78,17 +80,4 @@ var EventsList = Marionette.CompositeView.extend({
 
     return false;
   }
-});
-
-var Event = Backbone.Model.extend({
-  urlRoot: '/event',
-  validate: function() {
-    if(!this.get('title')) {
-      return 'Title is required.';
-    }
-  }
-});
-
-var Events = Backbone.Collection.extend({
-  model: Event
 });

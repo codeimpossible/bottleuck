@@ -29,20 +29,21 @@ html
     nav.navbar.navbar-default(role='navigation')
       .container-fluid
         .navbar-header
-          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#header-menu')
-            span.sr-only Toggle navigation
-            i.fa.fa-bars
+          - if(req.user)
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#header-menu')
+              span.sr-only Toggle navigation
+              i.fa.fa-bars
           a.navbar-brand(href='/')
             | bottleuck&nbsp;
             i.fa.fa-spin.fa-circle-o-notch.js-loading.hidden
         #header-menu.collapse.navbar-collapse
           #header-menu.collapse.navbar-collapse
-            - if(typeof(user) !== 'undefined')
+            - if(req.user)
               ul.nav.navbar-nav.navbar-right.navbar-user-profile
                 li.dropdown
-                  img.avatar(src="#{user.raw.avatar_url}")
+                  img.avatar(src="#{req.user.raw.avatar_url}")
                   a.dropdown-toggle(href="#", data-toggle="dropdown")
-                    | #{user.name}
+                    | #{req.user.name}
                     span.caret
                   ul.dropdown-menu(role="menu")
                     li
@@ -93,8 +94,12 @@ html
     script(src="/linker/bower_components/backbone/backbone.js")
     script(src="/linker/bower_components/backbone.marionette/lib/backbone.marionette.js")
     script(src="/js/app.js")
-    script(src="/js/events.js")
-    script(src="/js/user.js")
+    script(src="/js/controllers/event-dashboard.js")
+    script(src="/js/controllers/user-profile.js")
+    script(src="/js/dumb-view.js")
+    script(src="/js/events-list.js")
+    script(src="/js/models.js")
+    script(src="/js/participants-list.js")
     // SCRIPTS END
     script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
     block scripts

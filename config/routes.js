@@ -25,13 +25,18 @@ module.exports.routes = {
     controller : 'home'
   },
 
-  '/login' : {
-    controller : 'auth',
-    action     : 'index'
+  '/event/:id': {
+    controller: 'event',
+    action: 'dashboard'
   },
 
-  '/logout' : {
-    controller : 'auth',
-    action     : 'logout'
+  '/login': {
+    controller: 'auth',
+    action: 'index'
+  },
+
+  '/logout': {
+    controller: 'auth',
+    action: 'logout'
   }
 };

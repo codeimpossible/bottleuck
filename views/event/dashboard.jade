@@ -1,0 +1,29 @@
+extend ../layout
+
+block content
+  .row
+    .col-md-6.col-md-offset-3.col-sm-12.col-sm-offset-0
+      h2
+        | #{event.title}
+        small.pull-right
+          | Created by #{event.owner.name}
+      p= event.description || 'no description'
+  .row
+    .col-md-6.col-md-offset-3.col-sm-12.col-sm-offset-0
+      hr
+  .row
+    #participants-list.col-md-6.col-md-offset-3.col-sm-12.col-sm-offset-0
+      i.fa.fa-2x.fa-spin.fa-circle-o-notch
+
+block scripts
+  script
+    | (function(current_user, event) {
+    |   var channel = Backbone.Wreqr.radio.channel('global');
+    |   channel.vent.on('app:start', function() {
+    |     var controller = new BottleuckDashboard({
+    |       model: new Bottleuck(event),
+    |       currentUser: new User(current_user)
+    |     });
+    |     controller.dashboard();
+    |   });
+    | })(!{JSON.stringify(req.user)}, !{JSON.stringify(event)});

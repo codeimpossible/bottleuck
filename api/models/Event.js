@@ -6,7 +6,6 @@
 */
 
 module.exports = {
-  adapter: 'mongo',
   attributes: {
     title: 'STRING',
     description: 'STRING',
@@ -14,7 +13,8 @@ module.exports = {
       model: 'user'
     },
     participants: {
-      collection: 'user'
+      collection: 'participant',
+      via: 'event'
     },
 
     toJSON: function() {

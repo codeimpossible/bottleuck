@@ -2,12 +2,12 @@ extend ../layout
 
 block content
   .row
-      .col-md-2.col-md-offset-1.col-sm-12.col-sm-offset-0
-          img.avatar(src='#{user.raw.avatar_url}')
-          h2= user.name
+    .col-md-2.col-md-offset-3.col-sm-12.col-sm-offset-0
+      img.avatar(src='#{user.raw.avatar_url}')
+      h2= user.name
 
-        #events-list.col-md-4.col-sm-12
-          i.fa.fa-2x.fa-spin.fa-circle-o-notch
+    #events-list.col-md-4.col-sm-12
+      i.fa.fa-2x.fa-spin.fa-circle-o-notch
 
 block scripts
   script
@@ -18,4 +18,4 @@ block scripts
     |     var controller = new UserProfile({ model: user });
     |     controller.profile();
     |   });
-    | })(!{JSON.stringify(user)});
+    | })(!{JSON.stringify(req.user)});

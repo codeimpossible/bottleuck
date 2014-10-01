@@ -56,7 +56,7 @@ module.exports.http = {
     passport.use(new GitHubStrategy({
       clientID: process.env.GITHUB_OAUTH_CLIENTID,
       clientSecret: process.env.GITHUB_OAUTH_SECRET,
-      callbackURL: "http://localhost:1337/auth/github/callback"
+      callbackURL: "http://localhost:1337/api/auth/github/callback"
     }, verifyHandler));
 
     app.use(passport.initialize());
