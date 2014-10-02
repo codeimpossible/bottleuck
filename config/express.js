@@ -54,8 +54,10 @@ module.exports.http = {
 
   customMiddleware: function(app) {
     passport.use(new GitHubStrategy({
-      clientID: process.env.GITHUB_OAUTH_CLIENTID,
-      clientSecret: process.env.GITHUB_OAUTH_SECRET,
+      // these hard-coded keys are only used during development
+      // production deployment will use env vars below
+      clientID: process.env.GITHUB_OAUTH_CLIENTID || '5573f9a46c5e70f700a1',
+      clientSecret: process.env.GITHUB_OAUTH_SECRET || 'aa75f018d7a26813dc4b879fb2eb02018e64871a',
       callbackURL: "http://localhost:1337/api/auth/github/callback"
     }, verifyHandler));
 
