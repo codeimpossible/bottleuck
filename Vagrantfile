@@ -12,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "hashicorp/precise32"
 
-  # run the bootstrap for a zoidberg test machine
+  # run the bootstrap for a bottleuck machine
   config.vm.provision :shell, path: "./scripts/vagrant-bootstrap.sh"
 
   # configure port forwarding
