@@ -24,6 +24,7 @@ var BottleucksList = Marionette.CompositeView.extend({
     'toggle': '.btn-toggle-create-event',
     'form': '.form-create-event',
     'title': '[name=title]',
+    'starts_at': '[data-input-type=datetime]',
     'description': '[name=description]'
   },
 
@@ -37,6 +38,17 @@ var BottleucksList = Marionette.CompositeView.extend({
     this.listenTo(this.model, 'invalid', this.showRequired);
     this.listenTo(this.collection, 'add', this.hideForm);
     this.listenTo(this.model, 'sync', this.add);
+  },
+
+  onRender: function() {
+    this.ui.starts_at.datetimepicker({
+      icons: {
+        time: 'fa fa-clock-o',
+        date: 'fa fa-calendar',
+        up: 'fa fa-arrow-up',
+        down: 'fa fa-arrow-down'
+      }
+    });
   },
 
   add: function() {
@@ -68,9 +80,12 @@ var BottleucksList = Marionette.CompositeView.extend({
 
     var currentUser = app.request('user:current');
 
+    var starts_at = new Date(this.ui.starts_at.find('input').val());
+
     this.model.set({
       title: this.ui.title.val(),
       description: this.ui.description.val(),
+      starts_at: new Date(starts_at.toUTCString()),
       owner: currentUser.id
     });
 

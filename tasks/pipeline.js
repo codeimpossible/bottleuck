@@ -25,12 +25,15 @@ var jsFilesToInject = [
 
   // Load sails.io before everything else
   'js/dependencies/sails.io.js',
-  
+
   // bower components
   'linker/bower_components/underscore/underscore.js',
   'linker/bower_components/jquery/dist/jquery.js',
   'linker/bower_components/backbone/backbone.js',
   'linker/bower_components/backbone.marionette/lib/backbone.marionette.js',
+
+  'linker/bower_components/moment/min/moment.min.js',
+  'linker/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
 
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/**/*.js',

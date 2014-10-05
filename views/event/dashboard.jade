@@ -7,7 +7,20 @@ block content
         | #{event.title}
         small.pull-right
           | Created by #{event.owner.name}
+  .row
+    .col-md-3.col-md-offset-3.col-sm-12.col-sm-offset-0
       p= event.description || 'no description'
+    .col-md-3.col-sm-12.col-sm-offset-0
+      - if(event.starts_at)
+        a.addthisevent.pull-right(href="/event/#{event.id}", title="Add to Calendar")
+          | Add to Calendar
+          span._start= event.addThisEvent.start
+          span._end= event.addThisEvent.end
+          span._zonecode 35
+          span._summary= event.title
+          span._description= event.description
+          span._organizer= event.owner.name
+          span._date_format DD/MM/YYYY
   .row
     .col-md-6.col-md-offset-3.col-sm-12.col-sm-offset-0
       hr
@@ -16,6 +29,7 @@ block content
       i.fa.fa-2x.fa-spin.fa-circle-o-notch
 
 block scripts
+  script(type="text/javascript", src="https://addthisevent.com/libs/1.5.8/ate.min.js")
   script
     | (function(current_user, event) {
     |   var channel = Backbone.Wreqr.radio.channel('global');

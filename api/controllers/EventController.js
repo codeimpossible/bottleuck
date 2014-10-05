@@ -12,7 +12,7 @@ module.exports = {
 			if(err) return res.serverError(err);
     	if(!match) return res.notFound('No record found with the specified `id`.');
 
-			res.view({ event: match });
+			res.view({ event: match.toJSON() });
 		});
 	}
 };

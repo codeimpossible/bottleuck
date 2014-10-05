@@ -14,7 +14,6 @@ Marionette.TemplateCache.prototype.compileTemplate = function(template) {
 };
 
 app.on('start', function() {
-  Backbone.history.start();
   app.vent.trigger('app:start', app);
 });
 

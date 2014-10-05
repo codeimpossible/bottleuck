@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "backbone.marionette": "~2.2.1"
+    "backbone.marionette": "~2.2.1",
+    "eonasdan-bootstrap-datetimepicker": "~3.1.3"
   }
 }

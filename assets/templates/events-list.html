@@ -10,13 +10,22 @@
 <div class="events-create">
   <div class="form-create-event hidden">
     <form class="form" role="form">
-      <div class="form-group">
+      <div class="form-group" data-input-type="string">
         <label for="title">Title</label>
-        <input type="text" name="title" class="col-md-12 form-control" placeholder="Event Title"/>
+        <input type="text" name="title" class="form-control" placeholder="Give your bottleuck a snazzy title"/>
       </div>
       <div class="form-group">
+        <label for="starts_at">Bottleuck Start Date/Time</label>
+        <div class='input-group date' data-input-type="datetime">
+            <input type='text' name="starts_at" class="form-control" placeholder="Let people know when your bottleuck starts" />
+            <span class="input-group-addon">
+              <i class="fa fa-calendar fa-fw"></i>
+            </span>
+        </div>
+      </div>
+      <div class="form-group" data-input-type="text">
         <label for="description">Description</label>
-        <textarea name="description" class="col-md-12 form-control" placeholder="Event Description"></textarea>
+        <textarea name="description" class="form-control" placeholder="Explain a bit more about your bottleuck, the theme, the locations, etc"></textarea>
       </div>
 
       <button type="submit" class="btn btn-primary pull-right">
