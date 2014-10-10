@@ -23,6 +23,7 @@ var BottleucksList = Marionette.CompositeView.extend({
   ui: {
     'toggle': '.btn-toggle-create-event',
     'form': '.form-create-event',
+    'first_input': '.form-create-event input:first',
     'title': '[name=title]',
     'starts_at': '[data-input-type=datetime]',
     'description': '[name=description]'
@@ -33,11 +34,17 @@ var BottleucksList = Marionette.CompositeView.extend({
     'submit form': 'save'
   },
 
+  modelEvents: {
+    'sync': 'add',
+    'invalid': 'showRequired'
+  },
+
+  collectionEvents: {
+    'add': 'hideForm'
+  },
+
   initialize: function() {
     this.model = new Bottleuck();
-    this.listenTo(this.model, 'invalid', this.showRequired);
-    this.listenTo(this.collection, 'add', this.hideForm);
-    this.listenTo(this.model, 'sync', this.add);
   },
 
   onRender: function() {
@@ -56,7 +63,10 @@ var BottleucksList = Marionette.CompositeView.extend({
   },
 
   toggleForm: function() {
-    this.ui.form.toggleClass('hidden');
+    this.ui.form.toggleClass('expanded');
+    if(this.ui.form.hasClass('expanded')) {
+      this.ui.first_input.focus();
+    }
   },
 
   hideForm: function() {
