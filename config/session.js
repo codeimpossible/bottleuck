@@ -71,6 +71,7 @@ module.exports.session = {
   host: 'localhost',
   port: 27017,
   db: 'bottleuck',
+  url: process.env.BOTTLEUCK_MONGO_URL,
   collection: 'sessions',
 
   /***************************************************************************

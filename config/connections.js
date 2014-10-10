@@ -19,6 +19,21 @@
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.connections.html
  */
 
+var mongo_config = {
+  adapter: 'sails-mongo',
+  host: 'localhost',
+  port: 27017,
+  user: 'bottleuck',
+  password: 'bottleuck',
+  database: 'bottleuck',
+};
+
+if(process.env.BOTTLEUCK_MONGO_URL) {
+  mongo_config = {
+    adapter: 'sails-mongo',
+    url: process.env.BOTTLEUCK_MONGO_URL
+  };
+}
 module.exports.connections = {
 
   /***************************************************************************
@@ -40,12 +55,5 @@ module.exports.connections = {
   * Run: npm install sails-mongo                                             *
   *                                                                          *
   ***************************************************************************/
-  mongo: {
-    adapter: 'sails-mongo',
-    host: process.env.BOTTLEUCK_MONGO_HOST || 'localhost',
-    port: process.env.BOTTLEUCK_MONGO_PORT || 27017,
-    user: process.env.BOTTLEUCK_MONGO_USER || 'bottleuck',
-    password: process.env.BOTTLEUCK_MONGO_PWD || 'bottleuck',
-    database: 'bottleuck'
-  }
+  mongo: mongo_config
 };
