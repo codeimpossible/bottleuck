@@ -42,10 +42,10 @@ module.exports.connections = {
   ***************************************************************************/
   mongo: {
     adapter: 'sails-mongo',
-    host: 'localhost',
-    port: 27017,
-    user: 'bottleuck',
-    password: 'bottleuck',
+    host: process.env.BOTTLEUCK_MONGO_HOST || 'localhost',
+    port: process.env.BOTTLEUCK_MONGO_PORT || 27017,
+    user: process.env.BOTTLEUCK_MONGO_USER || 'bottleuck',
+    password: process.env.BOTTLEUCK_MONGO_PWD || 'bottleuck',
     database: 'bottleuck'
   }
 };
