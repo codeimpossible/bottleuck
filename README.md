@@ -5,9 +5,11 @@ a [Sails](http://sailsjs.org) application
 # Installation
 
  - install mongodb, default settings are fine when installing
- - install nodejs/bower
- - install sails `npm install -g sails`
+ - install nodejs
+ - install sails, bower and passport `npm install -g sails bower passport`
  - `npm install && bower install`
+ - setup mongodb `mongo ./scripts/mongo-setup.js`
+ - run the site: `sails lift`
 
 #### Alternatively
 
