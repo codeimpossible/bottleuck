@@ -11,6 +11,9 @@
  * http://sailsjs.org/#/documentation/concepts/Views
  */
 
+// load the moment library so we can incldue it as a "local" in our views
+var moment = require('moment');
+
 module.exports.views = {
 
   /****************************************************************************
@@ -77,5 +80,7 @@ module.exports.views = {
   *                                                                           *
   ****************************************************************************/
 
-
+  locals: {
+    moment: moment
+  }
 };
