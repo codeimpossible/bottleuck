@@ -26,30 +26,21 @@ html
     link(rel="stylesheet", href="/styles/importer.css")
     // STYLES END
   body
-    nav.navbar.navbar-default(role='navigation')
-      .container-fluid
-        .navbar-header
-          - if(req.user)
-            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#header-menu')
-              span.sr-only Toggle navigation
-              i.fa.fa-bars
-          a.navbar-brand(href='/')
-            | bottleuck&nbsp;
-            i.fa.fa-spin.fa-circle-o-notch.js-loading.hidden
-        #header-menu.collapse.navbar-collapse
-          #header-menu.collapse.navbar-collapse
-            - if(req.user)
-              ul.nav.navbar-nav.navbar-right.navbar-user-profile
-                li.dropdown
-                  img.avatar(src="#{req.user.raw.avatar_url}")
-                  a.dropdown-toggle(href="#", data-toggle="dropdown")
-                    | #{req.user.name}
-                    span.caret
-                  ul.dropdown-menu(role="menu")
-                    li
-                      a(href="/logout")
-                        i.fa.fa-sign-out
-                        |&nbsp; Logout
+    #content
+      #top_content
+        #header
+          nav.navbar.navbar-static-top(role='navigation')
+            .container
+              .navbar-header
+                a.navbar-brand(href='/')
+                  i.fa.fa-beer.fa-2x
+          #lead_content.container
+            h1.tagline
+              .title bottleuck
+              | Beer + potluck.
+            h2.tagline Grab some friends and share the good brews.
+            block top_content
+
     .container-fluid
       block content
     //
