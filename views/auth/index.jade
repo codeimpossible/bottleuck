@@ -1,25 +1,10 @@
-extend ../layout
+extend ../landing
 
-block content
+block top_content
   section
     #login-container.row
       .col-lg-4.col-lg-offset-4.col-md-4.col-md-offset-4.col-sm-10.col-sm-offset-1
-        h2#main-title Hi. Who Are you?
         p We use your github account instead of you having to remember <strong>another</strong> password.
         a.btn.btn-primary.btn-lg.btn-2x.col-md-12(href="/api/auth/github/")
           i.fa.fa-github
           span.txt Sign In With GitHub
-
-  section
-    .row
-      .col-md-2.col-md-offset-0.col-sm-10.col-sm-offset-1
-        p <strong>bot·tle·uck</strong> <i><small>/botˈtləuck/</small></i> - A gathering made up of friends and co-workers to sample great beers.
-
-      .col-md-2.col-md-offset-1.col-sm-10.col-sm-offset-1
-        p <strong>bottleuck.com</strong> - a website for you to organize your own bottleucks with your friends and co-workers!
-
-      .col-md-2.col-md-offset-1.col-sm-10.col-sm-offset-1
-        p Sign in and create a bottleuck to start inviting your friends today!
-
-      .col-md-2.col-md-offset-1.col-sm-10.col-sm-offset-1
-        p Vote for your favorite beers during your bottleuck and crown a winner afterwards!
