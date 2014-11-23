@@ -1,7 +1,7 @@
 {
   "name": "bottleuck",
   "private": true,
-  "version": "0.0.1-8",
+  "version": "0.0.1-10",
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
@@ -36,9 +36,9 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/jbarboza/bottleuck.git"
+    "url": "git://github.com/codeimpossible/bottleuck.git"
   },
-  "author": "jbarboza",
+  "author": "Jared Barboza <jared.m.barboza@gmail.com>",
   "license": "",
   "subdomain": "bottleuck",
   "engines": {
